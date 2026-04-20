@@ -1,0 +1,67 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  
+  font-family: sans-serif;
+}
+
+/* The Transparent Navbar */
+.navbar {
+  position: fixed; /* Keeps it at the top while scrolling */
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  padding: 20px 50px;
+  box-sizing: border-box;
+  
+  /* Transparency settings */
+  background: rgba(255, 255, 255, 0.1); /* Very light white tint */
+  backdrop-filter: blur(10px); /* Modern "glass" effect */
+  z-index: 1000;
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-left: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* Background image for context */
+.hero-section {
+  height: 100vh;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+              url('http://127.0.0.1:8000/static/image/icarus.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+   justify-content: center; 
+  align-items: center;
+  color: white;
+  width: 100%;
+  margin-top: 0; 
+}

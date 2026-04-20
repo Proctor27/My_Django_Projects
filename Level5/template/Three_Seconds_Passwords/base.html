@@ -1,0 +1,36 @@
+ <!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Humming Bird</title>
+    <link rel="stylesheet" href="{% static 'css/seconds.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+  <div class="logo">TONYCORP</div>
+  <ul class="nav-links">
+    <li><a href="{% url 'index'%}">Home</a></li>
+    <li><a href="{% url 'Three_Seconds_Passwords:register'%}">Register</a></li>
+    
+     {% if user.is_authenticated %}
+       <li><a href="{% url 'logout'%}">Logout</a></li>
+      {% else %}
+        <li><a href="{% url 'Three_Seconds_Passwords:user_login'%}">Login</a></li>
+      {%endif %}
+    <li><a href="{% url 'admin:index'%}">Admin</a></li> 
+  </ul>
+</nav>
+
+      <div class="container">
+         {% block body_block %}
+  <!-- Anything outside of this will be inherited if you extend-->
+   {% endblock %}
+
+      </div>
+   
+ 
+ 
+</body>
+</html>
