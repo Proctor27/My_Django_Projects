@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oceans</title>
+    <link rel="stylesheet" href="{% static 'css/barbie.css' %}">
+</head>
+<body >
+    <h1><em>I hope my black skin does not dirt this white tuxedo</em></h1>
+    
+   
+    <div class = "ranking">
+         {%if jolene %}
+        <table>
+            <thead>
+
+                <th>Site Name </th>
+                <th> Date Accessed </th>
+            </thead>
+
+                {% for barika in jolene %}
+                <tr>
+                <td>{{barika.name}} </td>    
+                <td>{{barika.date}} </td>    
+                    
+                </tr>
+                {% endfor %}
+
+        </table>
+        {% else %}
+        <p>No access record found </p>
+        {% endif %}
+    </div>
+      <div class = "ranking">
+         {%if sometimes %}
+        <table>
+            <thead>
+
+                <th>Topic </th>
+                <th> Name </th>
+                <th> Url </th>
+            </thead>
+
+                {% for barika in sometimes %}
+                <tr>
+                <td>{{barika.topic}} </td>    
+                <td>{{barika.name}} </td>    
+                <td>{{barika.url}} </td>    
+                    
+                </tr>
+                {% endfor %}
+
+        </table>
+        {% else %}
+        <p>No access record found </p>
+        {% endif %}
+    </div>
+    <img src="{% static 'image/vertigo.jpg' %}" alt="satelite">
+</body>
+</html>

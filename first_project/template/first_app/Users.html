@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oceans</title>
+    <link rel="stylesheet" href="{% static 'css/first_app.css' %}">
+</head>
+<body >
+    <h1><em>I hope my black skin does not dirt this white tuxedo</em></h1>
+    
+   
+    <div class = "ranking">
+         {%if jolene %}
+      <ol>
+         {%for future in jolene%} 
+         
+           <li> 
+            {{future.usernames}}
+            <ul> 
+                 
+          
+
+            </ul> 
+        
+        </li>
+  
+          {% endfor %}   </ol>
+        {% else %}
+        <p>No access record found </p>
+        {% endif %}
+    </div>
+     
+    <img src="{% static 'image/vertigo.jpg' %}" alt="satelite">
+</body>
+</html>

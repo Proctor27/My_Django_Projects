@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends "ManDown/base.html" %}
+        {% block body_block %}
+        <ol>
+                <li><h1>WELCOME TO THE HOME PAGE</h1></li>
+                <li>{{text|cut:'2fa'}}</li>
+                <li>{{sun|add:'3'}}</li>
+        </ol>
+        
+        {% endblock %}
