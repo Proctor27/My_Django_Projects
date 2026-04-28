@@ -1,0 +1,36 @@
+{% extends "blog_app/base.html" %}
+{% block body_block %}
+
+<section class="form-container">
+    <h1 class="form-title">Join the Conversation</h1>
+    <p class="form-subtitle">Share your thoughts on this post.</p>
+
+    <form method="POST" class="custom-form">
+        {% csrf_token %}
+        
+        {# We wrap the form in a div to target styling easier #}
+        <div class="form-fields">
+            {{ form.as_p }}
+        </div>
+        
+        <div class="form-actions">
+            <button type="submit" class="btn-cta">Post Comment</button>
+            <a href="{{ request.META.HTTP_REFERER }}" class="btn-cancel">Cancel</a>
+        </div>
+    </form>
+</section>
+
+<script>
+   
+    var editor = new MediumEditor('textarea', {
+        placeholder: {
+            text: 'Write your comment here...',
+            hideOnClick: true
+        },
+        toolbar: {
+            buttons: ['bold', 'italic', 'underline', 'anchor']
+        }
+    });
+</script>
+
+{% endblock %}

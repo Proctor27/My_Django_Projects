@@ -1,0 +1,38 @@
+{% extends "blog_app/base.html" %}
+{% block body_block %}
+
+<div class="blog-feed">
+    {% for post in post_list %}
+        <article class="post-preview">
+            <div class="post-meta-info">
+                <span class="meta-label">Published:</span> 
+                <span class="meta-date">{{ post.published_date|date:'M d, Y' }}</span>
+            </div>
+            
+            <h2 class="preview-title">
+                <a href="{% url 'Blog_app:post_detail' pk=post.pk %}">{{ post.title }}</a>
+            </h2>
+            
+            <div class="preview-text">
+                {# Using linebreaksbr to keep the summary tidy but readable #}
+                {{ post.text|truncatechars:250|safe|linebreaksbr }}
+            </div>
+
+            <div class="preview-footer">
+                <a href="{% url 'Blog_app:post_detail' pk=post.pk %}" class="read-more">Read Full Post →</a>
+                <span class="comment-count">{{ post.approve_comments.count }} Comments</span>
+            </div>
+        </article>
+        
+        {% if not forloop.last %}
+            <hr class="post-divider">
+        {% endif %}
+
+    {% empty %}
+        <div class="empty-state">
+            <p>No posts available yet. Check back soon!</p>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

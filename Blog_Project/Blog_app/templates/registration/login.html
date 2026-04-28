@@ -1,0 +1,25 @@
+{% extends "blog_app/base.html" %}
+
+{% block body_block %} <div class="container mt-5">
+    <h2>Please Login:</h2>
+    <h3 class="text-muted">(Must be a SuperUser, please check with the site admin)</h3>
+
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <p>Your username and password didn't match! Please try again.</p>
+        </div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        
+        {# Use {{ form.as_p }} with double curly braces, not {% %} #}
+        {{ form.as_p }}
+        
+        <input type="submit" class="btn btn-primary" value="Login" />
+        
+        {# The 'next' hidden input redirects users back to where they were before logging in #}
+        <input type="hidden" name="next" value="{{ next }}"/>
+    </form>
+</div>
+{% endblock %}

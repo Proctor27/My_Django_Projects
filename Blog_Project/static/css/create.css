@@ -1,0 +1,67 @@
+/* Container for the form to keep it centered and readable */
+.post-form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Style the Django form labels and inputs */
+.post-form p {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-form label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #7B68EE;
+    margin-bottom: 8px;
+}
+
+/* Styling the inputs and the Medium Editor area */
+.post-form input[type="text"], 
+.post-form textarea, 
+.editable {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-bottom: 1px solid rgba(75, 0, 130, 0.1);
+    font-family: 'Cormorant', serif;
+    font-size: 1.2rem;
+    background: transparent;
+    transition: border-color 0.3s;
+}
+
+.post-form input:focus, 
+.post-form textarea:focus {
+    outline: none;
+    border-bottom: 1px solid #4B0082;
+}
+
+ 
+.save-button {
+    background-color: #F3E5AB; /* Butter Cream */
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 25px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.save-button:hover {
+    background-color: #4B0082;
+    color: #fff;
+}
+
+/* Medium Editor specific tweak */
+.medium-editor-element {
+    min-height: 300px;
+    line-height: 1.6;
+    color: #555;
+}

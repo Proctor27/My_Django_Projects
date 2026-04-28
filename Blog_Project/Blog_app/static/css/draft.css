@@ -1,0 +1,9 @@
+/* main.css */
+@import url("create.css");
+@import url("draft.css");
+@import url("components.css");
+
+/* Your main styles here */
+body {
+    background-color: #f4f4f4;
+}

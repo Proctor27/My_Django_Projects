@@ -1,0 +1,33 @@
+{% extends "blog_app/base.html" %}
+
+{% block body_block %}
+<div class="blog-wrapper">
+    <div class="post-form-container">
+        <article class="post-card">
+            <div class="post-metadata">
+                <span>Drafting</span>
+                <span class="read-time">New Story</span>
+            </div>
+            
+            <h1 class="post-title" style="margin-bottom: 2rem;">Create a New Post</h1>
+
+            <form method="POST" class="post-form">
+                {% csrf_token %}
+                
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+
+                <div class="post-footer" style="margin-top: 2rem;">
+                    <button type="submit" class="save-button">Publish Post</button>
+                    <a href="{% url 'Blog_app:post_list' %}" class="read-link" style="margin-left: 20px; border-bottom-color: rgba(0,0,0,0.1);">Cancel</a>
+                </div>
+            </form>
+        </article>
+    </div>
+</div>
+
+<script>
+    var editor = new MediumEditor('.editable');
+</script>
+{% endblock %}

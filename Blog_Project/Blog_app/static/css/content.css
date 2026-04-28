@@ -1,0 +1,123 @@
+:root {
+    --lavender: #E6E6FA;
+    --butter-cream: #FDF5E6;
+    --deep-purple: #4B0082;
+    --border-color: #DCD0FF;
+}
+
+body {
+    background-color: var(--butter-cream);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+/* --- THE GRID CONTAINER --- */
+.blog-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;          /* Allows posts to wrap to the next row */
+    gap: 20px;                /* Space between columns and rows */
+    padding: 2rem;
+    margin: 20 0;           /* Centers the grid on the page */
+    max-width: 1600px;        /* Limits width for a professional look */
+}
+
+/* --- THE GRID ITEMS (2 PER ROW) --- */
+.blog-post {
+    /* (100% / 2) - (gap / 2) ensures exactly two items fit per row */
+    flex: 1 1 calc(50% - 10px); 
+    
+    min-width: 500px;         /* Prevents cards from getting too narrow */
+    background: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    
+    /* Makes the post card a flex column so internal elements align */
+    display: flex;
+    flex-direction: column;
+}
+
+.post-header, .post-body {
+    padding: 1.5rem 2rem;
+}
+
+.post-header {
+    background-color: #fafafa;
+    border-bottom: 1px solid var(--lavender);
+}
+
+.post-body {
+    flex-grow: 1;             /* Stretches body so footers align across the row */
+}
+
+.category-tag {
+    background: var(--lavender);
+    color: var(--deep-purple);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.post-header h2 {
+    color: var(--deep-purple);
+    margin: 10px 0;
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+/* --- COMMENTS AREA --- */
+.comments-section {
+    background-color: #fcfcfc;
+    border-top: 2px solid var(--lavender);
+    padding: 1.5rem 2rem;
+}
+
+.comments-section h3 {
+    font-size: 1rem;
+    color: var(--deep-purple);
+}
+
+.comment {
+    border-left: 3px solid var(--lavender);
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.comment-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+}
+
+.comment-form input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid var(--lavender);
+    border-radius: 4px;
+}
+
+.comment-form button {
+    background: var(--deep-purple);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* --- RESPONSIVE ADJUSTMENT --- */
+@media (max-width: 800px) {
+    .blog-post {
+        flex: 1 1 100%;       /* On small screens, stack them 1 per row */
+    }
+    .blog-container {
+        padding: 1rem;
+    }
+}

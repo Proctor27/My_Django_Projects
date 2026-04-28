@@ -1,0 +1,54 @@
+{% extends "blog_app/base.html" %}
+{% block body_block %}
+
+<article class="post-detail">
+    <h1 class="posttitle loader">{{ post.title }}</h1>
+
+    <div class="post-meta">
+        {% if post.published_date %}
+            <span class="postdate">{{ post.published_date|date:"F d, Y" }}</span>
+        {% else %}
+            <a class="btn-cta" href="{% url 'Blog_app:post_publish' pk=post.pk %}">Publish Post</a>
+        {% endif %}
+    </div>
+
+    <div class="postcontent">
+        {{ post.text|safe|linebreaksbr }}
+    </div>
+
+    {% if user.is_authenticated %}
+        <div class="post-controls">
+            <a href="{% url 'Blog_app:post_edit' pk=post.pk %}" class="btn-edit">Edit</a>
+            <a href="{% url 'Blog_app:delete' pk=post.pk %}" class="btn-delete">Remove</a>
+        </div>
+    {% endif %}
+
+    <hr class="divider">
+
+    <section class="comments-section">
+        <h3>Comments</h3>
+        <a class="btn-cta small" href="{% url 'Blog_app:add_comment_to_post' pk=post.pk %}">Add Comment</a>
+        
+        <div class="comment-container">
+            {% for comment in post.comments.all %}
+                {% if user.is_authenticated or comment.approved_comment %}
+                    <div class="comment-card">
+                        <p class="comment-meta"><strong>{{ comment.author }}</strong> • {{ comment.created_date|date:"M d, Y" }}</p>
+                        <p>{{ comment.text|safe|linebreaks }}</p>
+
+                        {% if not comment.approved_comment and user.is_superuser %}
+                            <div class="comment-actions">
+                                <a href="{% url 'Blog_app:comment_approve' pk=comment.pk %}" class="text-success">Approve</a>
+                                <a href="{% url 'Blog_app:comment_remove' pk=comment.pk %}" class="text-danger">Remove</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            {% empty %}
+                <p>No comments yet.</p>
+            {% endfor %}
+        </div>
+    </section>
+</article>
+
+{% endblock %}

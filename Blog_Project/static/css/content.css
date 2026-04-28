@@ -1,0 +1,96 @@
+/* Container spacing */
+.blog-wrapper {
+    max-width: 1000px;
+    margin: 0;
+    padding: 0;
+}
+
+/* The 2-Column Grid */
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two stories side by side */
+    column-gap: 70px; /* Space between columns */
+    row-gap: 80px;    /* Space between rows */
+    
+}
+
+/* Post Card Styling */
+.post-card {
+    position: relative;
+}
+
+/* Decorative Vertical Separation Line */
+/* This adds a line between the left and right columns */
+.post-grid > .post-card:nth-child(odd)::after {
+    content: "";
+    position: absolute;
+    right: -30px; /* Half of the column-gap */
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: rgba(75, 0, 130, 0.1); /* Subtle Lavender line */
+}
+
+/* Metadata (Date & Time) */
+.post-metadata {
+    display: flex;
+    gap: 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #7B68EE; /* Lavender */
+    margin-bottom: 1rem;
+}
+
+/* Post Title */
+.post-title {
+    font-family: 'Cormorant', serif;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin: 0 0 1rem 0;
+}
+
+.post-title a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.post-title a:hover {
+    color: #4B0082; /* Deep Purple */
+}
+
+/* Post Excerpt */
+.post-excerpt {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+/* Continue Reading Link */
+.read-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #1a1a1a;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #F3E5AB; /* Butter Cream Accent */
+    transition: all 0.3s;
+}
+
+.read-link:hover {
+    background-color: #F3E5AB;
+    color: #4B0082;
+}
+
+/* Responsive: Stack on small screens */
+@media (max-width: 768px) {
+    .post-grid {
+        grid-template-columns: 1fr;
+    }
+    .post-grid > .post-card:nth-child(odd)::after {
+        display: none;
+    }
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TONYBLOG</title>
+
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css">
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/content.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="{% url 'Blog_app:post_list' %}">TONYBLOG</a>
+                </div>
+
+                <ul class="nav-links-mid">
+                    <li><a href="{% url 'Blog_app:about' %}">About</a></li>
+                    <li><a href="https://github.com/">Github</a></li>
+                    <li><a href="https://medium.com/">Medium</a></li>
+                </ul>
+
+                <div class="nav-links-right">
+                    {% if user.is_authenticated %}
+                        <a class="btn-cta" href="{% url 'Blog_app:post_new' %}">New Post</a>
+                        <a href="{% url 'Blog_app:post_draft_list' %}">Drafts</a>
+                        
+                        <form action="{% url 'logout' %}" method="post" class="inline-form">
+                            {% csrf_token %}
+                            <button type="submit" class="nav-link-btn">Logout</button>
+                        </form>
+                        <span class="user-greeting">Hi, {{ user.username }}</span>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="login-link">Login</a>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrapper loader">
+        {% block body_block %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>

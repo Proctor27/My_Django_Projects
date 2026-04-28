@@ -1,0 +1,13 @@
+/* main.css */
+@import url("create.css");
+@import url("navbar.css");
+@import url("content.css");
+@import url("draft.css");
+@import url(".loader.css");
+@import url(".font.css");
+
+body {
+    background: linear-gradient(90deg, #E6E6FA 0%, #F3E5AB 100%);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}

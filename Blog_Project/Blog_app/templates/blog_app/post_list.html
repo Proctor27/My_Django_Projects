@@ -1,0 +1,39 @@
+{% extends "blog_app/base.html" %}
+{% block body_block %}
+
+<div class="blog-wrapper">
+    <div class="post-grid">
+        {% for post in post_list %}
+            <article class="post-card">
+                <div class="post-card-inner">
+                    <div class="post-metadata">
+                        <span class="post-date">{{ post.published_date|date:"M d" }}</span>
+                        <span class="read-time">5 min read</span>
+                    </div>
+                    
+                    <h2 class="post-title">
+                        <a href="{% url 'Blog_app:post_detail' pk=post.pk %}">{{ post.title }}</a>
+                    </h2>
+                    
+                    <p class="post-excerpt">
+                        {{ post.text|truncatechars:150|safe|linebreaksbr }}
+                    </p>
+                         <div class="post-metadata">
+                        <span class="post-date">Comments:{{post.approve_comments.count}} </span>
+                       
+                    </div>
+                    <div class="post-footer">
+                        
+                        <a href="{% url 'Blog_app:post_detail' pk=post.pk %}" class="read-link">Continue Reading</a>
+                    </div>
+                </div>
+            </article>
+        {% empty %}
+            <div class="empty-state">
+                <p>No stories found yet.</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

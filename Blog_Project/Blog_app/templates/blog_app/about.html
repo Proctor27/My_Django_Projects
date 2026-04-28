@@ -1,0 +1,33 @@
+{% extends "blog_app/base.html" %}
+
+{% block body_block %}
+<div class="blog-wrapper">
+    <div class="about-container">
+        <article class="post-card">
+            <div class="post-metadata">
+                <span>The Project</span>
+                <span class="read-time">Est. 2026</span>
+            </div>
+            
+            <h1 class="post-title">About TonyBlog</h1>
+
+            <div class="post-excerpt">
+                <p>
+                    Welcome to <strong>TonyBlog</strong>, a space dedicated to clean design and 
+                    thoughtful storytelling. Built with Python and Django, this platform 
+                    was created to explore the intersection of modern web development 
+                    and classic editorial aesthetics.
+                </p>
+                <p>
+                    Whether you're here to read or to share your own stories, 
+                    thanks for checking it out!
+                </p>
+            </div>
+
+            <div class="post-footer">
+                <a href="{% url 'Blog_app:post_list' %}" class="read-link">Return to Stories</a>
+            </div>
+        </article>
+    </div>
+</div>
+{% endblock %}

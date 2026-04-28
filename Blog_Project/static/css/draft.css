@@ -1,0 +1,92 @@
+/* Container for the feed */
+.blog-feed {
+    max-width: 850px; /* Slightly narrower than the grid for better reading line-length */
+    margin: 3rem auto;
+    padding: 0 20px;
+}
+
+/* Individual Post Preview */
+.post-preview {
+    padding: 2rem 0;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Metadata Styling */
+.post-meta-info {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-bottom: 0.8rem;
+    color: #7B68EE; /* Lavender Purple */
+}
+
+.meta-label {
+    opacity: 0.7;
+    color: #4B0082; /* Deep Purple */
+}
+
+/* Title Styling */
+.preview-title {
+    font-family: 'Cormorant', serif;
+    font-size: 2.8rem;
+    margin: 0.5rem 0 1.2rem 0;
+    line-height: 1.1;
+}
+
+.preview-title a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.preview-title a:hover {
+    color: #4B0082; /* Deep Purple */
+}
+
+/* Excerpt Text */
+.preview-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+/* Footer & Interactivity */
+.preview-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.read-more {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    padding: 8px 15px;
+    background-color: #F3E5AB; /* Butter Cream */
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #4B0082;
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+.comment-count {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #888;
+}
+
+/* Elegant Divider */
+.post-divider {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(75, 0, 130, 0), rgba(75, 0, 130, 0.15), rgba(75, 0, 130, 0));
+    margin: 1rem 0;
+}
