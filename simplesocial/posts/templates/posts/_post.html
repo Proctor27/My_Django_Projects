@@ -1,0 +1,29 @@
+<div class="post-card">
+    <div class="post-header">
+        <span class="coord-data">SENDER: </span>
+        <span class="username">
+            <a href="{% url 'posts:for_user' username=post.user.username %}" class="terminal-link">
+                @{{ post.user.username|upper }}
+            </a>
+        </span>
+        <span class="bitrate" style="margin-left: 15px;">
+            <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}" class="terminal-link">
+                TIMESTAMP_{{ post.created_at|date:"H:i:s" }}
+            </a>
+        </span>
+    </div>
+
+    <div class="post-content">
+        {{ post.message_html|safe }}
+    </div>
+
+    <div class="media-footer">
+        {% if user.is_authenticated and post.user == user %}
+            <div class="terminal-actions" style="margin-top: 15px;">
+                <a href="{% url 'posts:delete' pk=post.pk %}" title="delete" class="eject-btn" style="font-size: 0.6rem; padding: 5px 10px;">
+                    ERASE_DATA
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>

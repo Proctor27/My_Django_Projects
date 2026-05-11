@@ -1,0 +1,49 @@
+/* main.css */
+@import url("navbar.css");
+@import url("home.css");
+@import url("test.css");
+@import url("login.css");
+@import url("group.css");
+@import url("post.css");
+
+/* Any project-wide overrides go below */
+
+:root {
+    --void-black: #020204;
+}
+
+body {
+    background: radial-gradient(circle at center, #0a0a14 0%, #020204 100%);
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+    color: #cbd5e1; /* Quicksilver fallback */
+    overflow-x: hidden;
+}
+
+/* Grainy Starfield Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 10000;
+}
+
+#note {
+  position: absolute;
+  color: rgba(249,241,204,1);
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  margin: auto;
+  text-align: center;
+  user-select: none;
+   
+}
+

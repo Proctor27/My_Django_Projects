@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+
+<div class="thanks-viewport">
+    <div class="thanks-panel">
+        <h1 class="thanks-title">DISCONNECTED</h1>
+        <p class="thanks-msg">
+            SESSION_TERMINATED... <br>
+            LOCAL_CACHE_PURGED... <br>
+            ENCRYPTED_EXIT_SUCCESSFUL.
+        </p>
+        <a href="{% url 'home' %}" class="re-entry-btn">RE-INITIALIZE_UPLINK</a>
+    </div>
+</div>
+{% endblock %}

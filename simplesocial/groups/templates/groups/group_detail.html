@@ -1,0 +1,43 @@
+{% extends "groups/group_base.html" %}
+
+{% block pregroup %}
+<div class="col-md-4">
+    <div class="panel-header">
+        <span class="coord-data">CLUSTER // {{ group.slug|upper }}</span>
+        <span class="status-indicator">ACTIVE_NODES: {{ group.members.count }}</span>
+    </div>
+
+    <h1 class="void-title">{{ group.name }}</h1>
+    
+    <div class="void-module" style="margin-top: 20px;">
+        <p class="void-subtitle">_SUB_LINK_ESTABLISHED</p>
+        
+        <div class="terminal-actions">
+            {% if user in group.members.all %}
+                <a href="{% url 'groups:leave' slug=group.slug %}" class="btn-void-secondary">DISCONNECT_SESSION</a>
+            {% else %}
+                <a href="{% url 'groups:join' slug=group.slug %}" class="btn-void-primary">ESTABLISH_CONNECTION</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block group_content %}
+<div class="col-md-8">
+    <div class="post-feed-container">
+        <div class="panel-header">
+            <span class="bitrate">INCOMING_DATA_STREAM...</span>
+        </div>
+
+        {% for post in group.posts.all %}
+            {% include "posts/_post.html" %}
+        {% empty %}
+            <div class="void-panel" style="border-style: dashed; text-align: center; padding: 40px;">
+                <h2 class="void-subtitle">NO_DATA_FOUND_IN_THIS_SECTOR</h2>
+                <span class="bitrate">_WAITING_FOR_BROADCAST_</span>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

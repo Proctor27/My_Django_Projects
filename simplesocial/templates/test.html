@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_block %}
+<div class="scanline-overlay"></div>
+
+<div class="dashboard-viewport">
+    <div class="dashboard-grid">
+        
+        <aside class="side-module">
+            <div class="user-id-badge">
+                <span class="label-tiny">AUTHENTICATED_USER</span>
+                <span class="value-main">{{ user.username|upper }}</span>
+            </div>
+            <div class="user-id-badge">
+                <span class="label-tiny">SECTOR_ACCESS</span>
+                <span class="value-main">ALPHA_09</span>
+            </div>
+        </aside>
+
+        <section class="feed-module">
+            <div class="feed-header">
+                <h1 class="void-title">ACTIVE_<span>SIGNAL</span></h1>
+            </div>
+            
+            <div class="feed-content">
+                <p class="void-subtitle">Transmission stream active. Waiting for broadcast data...</p>
+            </div>
+        </section>
+
+    </div>
+</div>
+{% endblock %}

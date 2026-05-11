@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block body_block %}
+<div class="void-viewport">
+    <div class="terminal-container">
+        <div class="void-panel">
+            <!-- The scanning line effect -->
+            <div class="panel-scanner"></div>
+
+            <!-- HUD Header Details -->
+            <div class="panel-header">
+                <span class="coord-data">ORIGIN: TERRA_V3</span>
+                <span class="status-indicator">NEW_USER_ENROLLMENT</span>
+                <span class="bitrate">UPLINK_STABLE</span>
+            </div>
+
+            <!-- Title Section -->
+            <h1 class="void-title">REGIS<span>TER</span></h1>
+            <p class="void-subtitle">ENCRYPT_DATA: Create a new digital signature for access to the network.</p>
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                <div class="terminal-form-context">
+                    {% bootstrap_form form %}
+                </div>
+                
+                <div class="terminal-actions mt-4">
+                    <button type="submit" class="btn-void-primary">INITIATE_ONBOARDING</button>
+                    <a href="{% url 'home' %}" class="btn-void-secondary">CANCEL</a>
+                </div>
+            </form>
+
+            <div class="mt-4 text-center">
+                <span class="bitrate">
+                    RECOGNIZED_USER? <a href="{% url 'accounts:login' %}" style="color: #fff; text-decoration: underline;">RESUME_SESSION</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

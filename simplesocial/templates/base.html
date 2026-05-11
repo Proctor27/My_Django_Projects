@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+{% load django_bootstrap5 %}  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TONY STAR SOCIAL</title>
+    
+    {% bootstrap_css %}
+    
+    <link rel="stylesheet" href="{% static 'simplesocial/css/main.css' %}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&family=Syncopate:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+    <header class="void-header">
+        <nav class="void-nav">
+            <div class="void-container">
+                
+                <div class="void-brand">
+                    <a href="{% url 'home' %}">TONY<span>STAR</span>_SOCIAL</a>
+                </div>
+
+                <div class="void-links">
+                    {% if user.is_authenticated %}
+                        <div class="void-module">
+                            <a href="{% url 'posts:all' %}" class="void-link">Feed</a>
+                            <a href="{% url 'groups:all' %}" class="void-link">Groups</a>
+                            <a href="{% url 'groups:create' %}" class="void-link">Create</a> 
+                        </div>
+
+                        <div class="void-module cta">
+                            <a href="{% url 'posts:create' %}" class="void-btn">Broadcast</a>
+                        </div>
+
+                        <div class="void-module">
+                            <span class="user-id">ID_{{ user.username|upper }}</span>
+                            <form action="{% url 'accounts:logout' %}" method="post" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="eject-btn">Term_Session</button>
+                            </form>
+                        </div>
+                    {% else %}
+                        <div class="void-module">
+                             <a href="{% url 'groups:all' %}" class="void-link">Groups</a>
+                            <a href="{% url 'accounts:login' %}" class="void-link">Login</a>
+                            <a href="{% url 'accounts:signup' %}" class="void-link">Sign up</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </nav>
+    </header>
+         
+    <main >
+        {% block body_block %}{% endblock %}
+        
+    </main>
+      <canvas id="canvas">
+         </canvas> 
+  
+    {% bootstrap_javascript %}
+</body>
+ <script type="text/javascript" src="{% static "simplesocial/js/index.js" %}"> </script>
+</html>

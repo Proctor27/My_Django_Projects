@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block body_block %}
+<div class="void-viewport">
+    <div class="terminal-container">
+        <div class="void-panel">
+            <div class="panel-scanner"></div>
+            <div class="row">
+                {% block pregroup %}{% endblock %}
+                {% block group_content %}{% endblock %}
+                {% block postgroup %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

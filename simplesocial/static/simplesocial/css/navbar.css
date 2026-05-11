@@ -1,0 +1,119 @@
+/* --- DARK MATTER NAVIGATION --- */
+@import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=JetBrains+Mono:wght@300;500&display=swap');
+
+:root {
+    --titanium: #94a3b8;
+    --glass-fill: rgba(10, 10, 15, 0.4);
+    --glass-edge: rgba(255, 255, 255, 0.08);
+    --glow-soft: rgba(148, 163, 184, 0.2);
+}
+
+.void-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 0;
+    z-index: 999;
+}
+
+.void-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+}
+
+/* --- BRANDING --- */
+.void-brand a {
+    font-family: 'Syncopate', sans-serif;
+    color: var(--titanium);
+    text-decoration: none;
+    letter-spacing: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    opacity: 0.5;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.void-brand a:hover {
+    opacity: 1;
+    letter-spacing: 15px;
+    color: #ffffff;
+    text-shadow: 0 0 15px var(--glow-soft);
+}
+
+/* --- FLOATING MODULES --- */
+.void-links {
+    display: flex;
+    gap: 12px;
+}
+
+.void-module {
+    background: var(--glass-fill);
+    backdrop-filter: blur(25px) saturate(160%);
+    -webkit-backdrop-filter: blur(25px) saturate(160%);
+    border: 1px solid var(--glass-edge);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-radius: 2px;
+    transition: border 0.3s ease;
+}
+
+.void-module:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.void-module.cta {
+    background: rgba(139, 92, 246, 0.03);
+    border: 1px solid rgba(139, 92, 246, 0.15);
+}
+
+/* --- LINKS & UI --- */
+.void-link {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--titanium);
+    text-decoration: none;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.void-link:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+}
+
+.void-btn {
+    font-family: 'JetBrains Mono', monospace;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.user-id {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.2);
+    margin-right: 10px;
+}
+
+.eject-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 68, 68, 0.4);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.eject-btn:hover {
+    color: #ff4444;
+}

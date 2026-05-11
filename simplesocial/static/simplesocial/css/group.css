@@ -1,0 +1,88 @@
+/* --- TERMINAL LINK OVERRIDE --- */
+
+/* 1. Global Reset for Links */
+a {
+    text-decoration: none !important;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+/* 2. Void Button Modules (The Sidebar Links) */
+.void-btn {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+    overflow: hidden;
+    cursor: crosshair;
+}
+
+.btn-secondary-module {
+    border-left: 4px solid #94a3b8;
+}
+
+.btn-primary-uplink {
+    border-left: 4px solid #00ffaa;
+    color: #00ffaa !important;
+}
+
+.void-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.btn-primary-uplink:hover {
+    background: rgba(0, 255, 170, 0.05);
+    box-shadow: 0 0 20px rgba(0, 255, 170, 0.2);
+}
+
+/* 3. Group Card Specifics */
+.group-card {
+    display: block;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 3px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    margin-bottom: 15px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.group-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #00ffaa; /* HUD Green Accent */
+    transform: translateX(10px);
+}
+
+/* Metadata HUD Layout */
+.group-meta {
+    display: flex;
+    gap: 30px;
+    margin-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 12px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-label {
+    font-size: 0.55rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+.meta-value {
+    font-size: 0.8rem;
+    color: #fff;
+    font-family: 'JetBrains Mono', monospace;
+}

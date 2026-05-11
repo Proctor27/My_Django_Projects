@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block body_block %}
+<div class="void-viewport">
+    <div class="terminal-container">
+        <div class="void-panel">
+            <!-- The scanning line effect -->
+            <div class="panel-scanner"></div>
+
+            <!-- HUD Header Details -->
+            <div class="panel-header">
+                <span class="coord-data">LOC: 40.7128° N, 74.0060° W</span>
+                <span class="status-indicator">SECURE_CHANNEL</span>
+                <span class="bitrate">8192 KBPS</span>
+            </div>
+
+            <!-- Title Section -->
+            <h1 class="void-title">LOG<span>IN</span></h1>
+            <p class="void-subtitle">AUTH_REQUIRED: Please provide credentials to establish session.</p>
+
+            <form method="POST">
+                {% csrf_token %}
+                
+                {# Customizing bootstrap_form to match the dark aesthetic #}
+                <div class="terminal-form-context">
+                    {% bootstrap_form form %}
+                </div>
+                
+                <div class="terminal-actions mt-4">
+                    <button type="submit" class="btn-void-primary">ESTABLISH_CONNECTION</button>
+                    <a href="{% url 'home' %}" class="btn-void-secondary">ABORT_MISSION</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

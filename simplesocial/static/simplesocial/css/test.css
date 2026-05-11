@@ -1,0 +1,123 @@
+/* --- DASHBOARD / TEST PAGE OPERATIONAL HUB --- */
+
+.dashboard-viewport {
+    padding-top: 140px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at top right, rgba(147, 112, 219, 0.05) 0%, transparent 40%);
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 25px;
+    width: 100%;
+    max-width: 1300px;
+    padding: 0 40px;
+}
+
+/* Side Data Panel */
+.side-module {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    height: fit-content;
+    position: sticky;
+    top: 140px;
+}
+
+.user-id-badge {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.label-tiny {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--titanium);
+    letter-spacing: 2px;
+}
+
+.value-main {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.9rem;
+    color: #fff;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Main Feed Panel */
+.feed-module {
+    background: rgba(10, 10, 15, 0.4);
+    backdrop-filter: blur(40px);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 40px;
+    min-height: 600px;
+}
+
+.feed-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+
+
+/* --- THANK YOU / DISCONNECT STYLE --- */
+
+.thanks-viewport {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000; /* Pure black exit */
+}
+
+.thanks-panel {
+    text-align: center;
+    max-width: 500px;
+    opacity: 0;
+    animation: fadeIntoVoid 3s forwards;
+}
+
+.thanks-title {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 20px;
+    color: #fff;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.thanks-msg {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--titanium);
+    line-height: 2.5;
+    letter-spacing: 1px;
+}
+
+.re-entry-btn {
+    margin-top: 60px;
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    color: #fff;
+    font-size: 0.6rem;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 25px;
+    transition: 0.4s;
+}
+
+.re-entry-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+@keyframes fadeIntoVoid {
+    from { opacity: 0; filter: blur(10px); }
+    to { opacity: 1; filter: blur(0); }
+}

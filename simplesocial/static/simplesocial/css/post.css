@@ -1,0 +1,148 @@
+/* ___post html */
+/* Post Card HUD */
+.post-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-left: 2px solid rgba(255, 255, 255, 0.1);
+    padding: 25px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.post-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-left: 2px solid #fff;
+    box-shadow: -10px 0 20px rgba(255, 255, 255, 0.02);
+}
+
+/* Post Content */
+.post-content {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+/* Links inside the post */
+.terminal-link {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.terminal-link:hover {
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* The Erase/Delete Button */
+.eject-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 70, 70, 0.3);
+    color: #ff4646;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.eject-btn:hover {
+    background: #ff4646;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 70, 70, 0.4);
+}
+
+
+
+
+/* Sidebar Lists */
+.terminal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.terminal-list li {
+    margin-bottom: 10px;
+}
+
+.terminal-list .terminal-link {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.terminal-list .terminal-link:hover {
+    color: #00ffaa; /* HUD Accent */
+    padding-left: 5px;
+    text-shadow: 0 0 8px rgba(0, 255, 170, 0.5);
+}
+
+/* Feed Scrollbar */
+.post-feed-scroll::-webkit-scrollbar {
+    width: 2px;
+}
+.post-feed-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+
+
+
+
+
+
+.detailed-post-view {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.03);
+    padding: 20px;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+/* Optional: Make the text slightly larger for the single view */
+.detailed-post-view .post-content {
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+
+
+
+/* Broadcast Zone HUD */
+.broadcast-zone {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(0, 255, 170, 0.2); /* Subtle green hint */
+    padding: 20px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.broadcast-zone:hover {
+    border-color: rgba(0, 255, 170, 0.5);
+    background: rgba(0, 255, 170, 0.02);
+}
+
+.broadcast-action .btn-void-primary {
+    background: transparent;
+    color: #00ffaa;
+    border: 1px solid #00ffaa;
+    letter-spacing: 3px;
+    transition: 0.4s;
+}
+
+.broadcast-action .btn-void-primary:hover {
+    background: #00ffaa;
+    color: #020204;
+    box-shadow: 0 0 25px rgba(0, 255, 170, 0.4);
+    text-shadow: none;
+}
+
+/* Redefining the viewport for better spacing */
+.post-feed-scroll {
+    padding-right: 10px;
+}

@@ -1,0 +1,66 @@
+{% extends "posts/post_base.html" %}
+
+{% block post_content %}
+<div class="col-md-8">
+    <!-- BROADCAST INTERFACE -->
+    {% if user.is_authenticated %}
+    <div class="void-module broadcast-zone" style="margin-bottom: 30px;">
+        <div class="panel-header">
+            <span class="coord-data">INITIALIZE_BROADCAST</span>
+            <span class="bitrate">UPLINK: ACTIVE</span>
+        </div>
+        <div class="broadcast-action">
+            <p class="void-subtitle" style="font-size: 0.7rem;">_READY_FOR_INPUT...</p>
+            <!-- Turned into a clear action button -->
+            <a href="{% url 'posts:create' %}" class="void-btn btn-primary-uplink">
+                OPEN_COMM_CHANNEL
+            </a>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- DATA STREAM -->
+    <div class="panel-header">
+        <span class="coord-data">DATA_STREAM // GLOBAL_FEED</span>
+        <span class="status-indicator">LIVE_SYNC</span>
+    </div>
+    
+    <div class="post-feed-scroll" style="max-height: 60vh; overflow-y: auto;">
+        {% for post in post_list %}
+            {% include "posts/_post.html" %}
+        {% empty %}
+            <p class="void-subtitle">_NO_BROADCASTS_DETECTED_</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block post_post %}
+<div class="col-md-4">
+    {% if request.user.is_authenticated %}
+        <div class="void-module" style="margin-bottom: 30px;">
+            <h5 class="coord-data" style="color: #fff; margin-bottom: 15px;">MY_CLUSTERS</h5>
+            <div class="terminal-button-stack">
+                {% for member_group in get_user_groups %}
+                    <a href="{% url 'groups:single' slug=member_group.group.slug %}" class="void-btn btn-sidebar">
+                        <span class="btn-decorator">></span> {{ member_group.group.name|upper }}
+                    </a>
+                {% empty %}
+                    <span class="bitrate">NO_ACTIVE_MEMBERSHIPS</span>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="void-module">
+        <h5 class="coord-data" style="color: #fff; margin-bottom: 15px;">AVAILABLE_NETWORKS</h5>
+        <div class="terminal-button-stack">
+            {% for other_group in get_other_groups %}
+                <a href="{% url 'groups:single' slug=other_group.slug %}" class="void-btn btn-sidebar">
+                    <span class="btn-decorator">></span> {{ other_group.name|upper }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

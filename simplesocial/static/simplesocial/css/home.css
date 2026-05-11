@@ -1,0 +1,120 @@
+/* --- DEEP SPACE TERMINAL STYLE --- */
+
+.void-viewport {
+    padding-top: 180px; /* Leave space for the floating navbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 180px);
+}
+
+.terminal-container {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 20px;
+}
+
+/* The Content Panel */
+.void-panel {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 60px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.6);
+}
+
+/* Subtle scanning line animation */
+.panel-scanner {
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.05), transparent);
+    animation: scanLine 8s linear infinite;
+}
+
+@keyframes scanLine {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+
+/* Text & HUD Details */
+.void-title {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 2.5rem;
+    letter-spacing: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.void-title span {
+    opacity: 0.5;
+}
+
+.void-subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: #94a3b8;
+    margin-bottom: 40px;
+}
+
+/* Button Styling */
+.terminal-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-void-primary {
+    background: rgba(255, 255, 255, 0.9);
+    color: #020204;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-void-primary:hover {
+    background: #fff;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.btn-void-secondary {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.btn-void-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* HUD Meta Data */
+.coord-data, .status-indicator, .bitrate {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 2px;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.status-indicator::before {
+    content: "●";
+    margin-right: 5px;
+    color: #00ffaa; /* A tiny spark of color */
+}

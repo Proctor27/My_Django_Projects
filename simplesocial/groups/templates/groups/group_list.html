@@ -1,0 +1,51 @@
+{% extends "groups/group_base.html" %}
+
+{% block pregroup %}
+<div class="col-md-4">
+    <div class="panel-header">
+        <span class="coord-data">GROUPS // DIRECTORY</span>
+    </div>
+    
+    {% if user.is_authenticated %}
+        <h2 class="void-title" style="font-size: 1.5rem;">USER_<span>{{user.username|upper}}</span></h2>
+        <!-- Class changed to void-btn for terminal look -->
+        <a href="{% url 'posts:for_user' username=user.username %}" class="void-btn btn-secondary-module">
+            VIEW_MY_TRANSMISSIONS
+        </a>
+    {% endif %}
+
+    <p class="void-subtitle" style="margin-top: 20px;">_SELECT_ACCESS_POINT_OR_INITIALIZE_NEW_CLUSTER</p>
+
+    {% if user.is_authenticated %}
+        <a href="{% url 'groups:create' %}" class="void-btn btn-primary-uplink">
+            CREATE_NEW_GROUP
+        </a>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block group_content %}
+<div class="col-md-8">
+    <div class="group-list-scroll">
+        {% for group in object_list %}
+            <!-- The group card itself is the link -->
+            <a href="{% url 'groups:single' slug=group.slug %}" class="group-card">
+                <h3 class="group-name">{{group.name|upper}}</h3>
+                <div class="group-description">
+                    {{group.description_html|safe}}
+                </div>
+                <div class="group-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">NODES</span>
+                        <span class="meta-value">{{group.members.count}}</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">DATA_PKTS</span>
+                        <span class="meta-value">{{group.posts.count}}</span>
+                    </div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

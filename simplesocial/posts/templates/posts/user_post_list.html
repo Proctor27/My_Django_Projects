@@ -1,0 +1,41 @@
+{% extends "posts/post_base.html" %}
+
+{% block prepost %}
+<div class="col-md-4">
+    <div class="panel-header">
+        <span class="coord-data">SOURCE_ID // LOCATED</span>
+    </div>
+
+    <h1 class="void-title" style="font-size: 1.8rem;">
+        @{{ post_user.username|upper }}
+    </h1>
+    
+    <div class="void-module" style="margin-top: 20px;">
+        <p class="void-subtitle">_TOTAL_BROADCASTS: {{ post_list|length }}</p>
+        <div class="status-indicator">TRANSMISSION_STABLE</div>
+    </div>
+
+    <div class="terminal-actions" style="margin-top: 30px;">
+        <a href="{% url 'posts:all' %}" class="btn-void-secondary">GLOBAL_FEED</a>
+        <a href="{% url 'posts:create' %}" class="btn-void-secondary">NEW_FEED</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block post_content %}
+<div class="col-md-8">
+    <div class="panel-header">
+        <span class="bitrate">UPLINK_ESTABLISHED_FILTER_USER</span>
+    </div>
+
+    <div class="post-feed-scroll" style="max-height: 70vh; overflow-y: auto;">
+        {% for post in post_list %}
+            {% include "posts/_post.html" %}
+        {% empty %}
+            <div class="void-panel" style="border: 1px dashed rgba(255,255,255,0.1); text-align: center;">
+                <p class="void-subtitle">_USER_HAS_NOT_BROADCAST_DATA_</p>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
