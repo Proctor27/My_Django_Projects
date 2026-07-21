@@ -1,0 +1,27 @@
+{% extends "cbv/cbv_base.html" %}
+{% block body_block %}
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>WELCOME TO A LIST OF ALL THE SCHOOLS</h1>
+        <ol>
+            {% comment %} 
+               Default ListView uses 'school_list' unless you 
+               renamed it in your View class 
+            {% endcomment %}
+            {% for school in schools %}
+                <li>
+                    <h2>
+                        <a href="{% url 'ClassBasedViews:detail' pk=school.pk %}">
+                            {{ school.name }}
+                        </a>
+                    </h2>
+                </li>
+            {% empty %}
+                <li>No schools found in the database.</li>
+            {% endfor %}
+        </ol>
+    </div>
+</section>
+
+{% endblock %}

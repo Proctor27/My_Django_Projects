@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Than Words</title>
+    <link rel="stylesheet" href="{% static 'css/sleep.css' %}">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">TonyCorp</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="{% url 'ClassBasedViews:list'%}">School</a></li>
+            <li><a href="{% url 'admin:index'%}">Admin</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+            {% block body_block %}
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Welcome to the Future</h1>
+            <p>Experience clean design and seamless functionality.</p>
+            <button class="cta-btn">Get Started</button>
+        </div>
+    </section>
+            {% endblock %}
+</body>
+</html>

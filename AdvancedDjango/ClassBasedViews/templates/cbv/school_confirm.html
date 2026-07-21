@@ -1,0 +1,19 @@
+{% extends "cbv/cbv_base.html" %}
+{% block body_block %}
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>
+            Delete {{school.name}}?
+
+        </h1>
+        <form  method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type='submit' value='Delete'/>
+        </form>
+         <p> <a href="{% url 'ClassBasedViews:detail' pk=school.pk %}"> Cancel</a></p> 
+    </div>
+</section>
+
+{% endblock %}

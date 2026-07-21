@@ -1,0 +1,77 @@
+/* Global Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* Falling back to a soft butter cream */
+    background-color: #FFF9E5; 
+    background-image: url("http://127.0.0.1:8000/static/image/vertigo.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Georgia', serif; /* Classic editorial font */
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Typography - Editorial Style */
+h1 {
+    color: #4B0082; /* Deep Purple */
+    font-size: 2.8rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 2rem 0 1rem;
+    text-align: center;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px;
+}
+
+/* Table Styling */
+table {
+    width: 90%;
+    max-width: 1000px;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight transparency for the cream background */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #d1d1d1; /* Softer than pure black */
+}
+
+th {
+    background-color: #E6E6FA; /* Lavender Purple */
+    color: #4B0082; /* Deep Purple */
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+tr:nth-child(even) {
+    background-color: #FFFDF5; /* Subtle alternating butter cream */
+}
+
+/* Links & Accents */
+a {
+    color: #4B0082;
+    text-decoration: none;
+    border-bottom: 2px solid #E6E6FA;
+    transition: 0.3s;
+}
+
+a:hover {
+    background-color: #E6E6FA;
+}

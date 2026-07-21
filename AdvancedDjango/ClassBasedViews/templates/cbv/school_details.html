@@ -1,0 +1,22 @@
+{% extends "cbv/cbv_base.html" %}
+        {% block body_block %}
+        <section class="hero-section">
+        <div class="hero-content">
+            <h1>WELCOME TO THE SCHOOL DETAIL PAGE</h1>
+            <h2>School Detail:</h2>
+            <p>Name: {{school_detail.name }}</p>
+            <p>Principal: {{school_detail.principal }}</p>
+            <p>Location: {{school_detail.location }}</p>
+            <h3>Students:</h3>
+            {% for student in school_detail.students.all %}
+            <p>{{student.name}} who is {{student.age}} years old.</p>
+            {% endfor %}
+            
+        </div>
+    <div>
+         <p> <a href="{% url 'ClassBasedViews:update' pk=school_detail.pk %}"> Update</a></p> 
+         <p> <a href="{% url 'ClassBasedViews:delete' pk=school_detail.pk %}"> Delete</a></p> 
+    </div>
+    </section>
+
+        {% endblock %}

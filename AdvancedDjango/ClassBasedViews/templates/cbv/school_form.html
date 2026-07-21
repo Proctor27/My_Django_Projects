@@ -1,0 +1,23 @@
+{% extends "cbv/cbv_base.html" %}
+{% block body_block %}
+
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>
+            {% if not form.instance.pk %}
+            Create School 
+            {% else %}
+            Update School
+            {% endif %}
+
+        </h1>
+        <form action='' method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type='submit' value='Submit'/>
+        </form>
+        
+    </div>
+</section>
+
+{% endblock %}
